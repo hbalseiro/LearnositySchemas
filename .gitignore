@@ -1,0 +1,5 @@
+credentials.json
+composer.lock
+composer.phar
+inferedSchema.json
+vendor/
