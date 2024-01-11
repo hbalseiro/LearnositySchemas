@@ -95,6 +95,19 @@ class SchemaMaker
                             }
                         }
                         break;
+                    case "string/number":
+                        $schema['properties'][$property]['items'] = [
+                            'oneOf' => [
+                                [
+                                    'type' => 'string'
+                                ],
+                                [
+                                    'type' => 'number'
+                                ]
+                            ]
+                        ];
+                        unset($schema['properties'][$property]['type']);
+                        break;
                     case "questionOrderlist":
                     //This is a special case, it has to be mapped to an array, but there's no way to infer the items in that array. Doing it manually instead.
                         $schema['properties'][$property]['type'] = "array";
